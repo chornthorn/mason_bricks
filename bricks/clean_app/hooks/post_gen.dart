@@ -24,7 +24,7 @@ Future<void> _removeFiles(HookContext context, String name) async {
 
 Future<void> _installDependencies(HookContext context) async {
   final installDone = context.logger.progress('Installing dependencies...');
-  var result = await Process.run('flutter', ['pub', 'add', 'get_it'],
+  var result = await Process.run('fvm flutter', ['pub', 'add', 'get_it'],
       workingDirectory: './{{name}}');
   if (result.exitCode == 0) {
     installDone('Dependencies installed!');
